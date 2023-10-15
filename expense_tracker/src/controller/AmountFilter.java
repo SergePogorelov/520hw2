@@ -16,7 +16,7 @@ public class AmountFilter implements TransactionFilter {
      * Creates a new AmountFilter with the specified minimum and maximum amount values.
      *
      * @param minAmount The minimum amount for filtering.
-     * @param maxAmount The maximum amount for filtering.
+     * @param maxAmount The maximum amount for filtering. Use 0 to indicate no maximum amount.
      */
     public AmountFilter(double minAmount, double maxAmount) {
         this.minAmount = minAmount;
@@ -27,7 +27,8 @@ public class AmountFilter implements TransactionFilter {
      * Filters a list of transactions to include only those with amounts within the specified range.
      *
      * @param transactions The list of transactions to be filtered.
-     * @return A filtered list of transactions with amounts between minAmount and maxAmount (inclusive).
+     * @return A filtered list of transactions with amounts greater than or equal to minAmount
+     *         and, if specified, less than or equal to maxAmount (inclusive).
      */
     @Override
     public List<Transaction> filter(List<Transaction> transactions) {
@@ -35,8 +36,10 @@ public class AmountFilter implements TransactionFilter {
 
         for (Transaction transaction : transactions) {
             double amount = transaction.getAmount();
-            if (amount >= minAmount && amount <= maxAmount) {
-                filteredTransactions.add(transaction);
+            if (amount >= minAmount) {
+                if (maxAmount == 0 || amount <= maxAmount) {
+                    filteredTransactions.add(transaction);
+                }
             }
         }
 
