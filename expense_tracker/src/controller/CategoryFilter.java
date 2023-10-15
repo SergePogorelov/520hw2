@@ -14,7 +14,7 @@ public class CategoryFilter implements TransactionFilter {
     /**
      * Creates a new CategoryFilter with the specified category for filtering.
      *
-     * @param category The category used for filtering transactions.
+     * @param category The category used for filtering transactions. Use an empty string to include all categories.
      */
     public CategoryFilter(String category) {
         this.category = category;
@@ -24,13 +24,13 @@ public class CategoryFilter implements TransactionFilter {
      * Filters a list of transactions to include only those with the specified category.
      *
      * @param transactions The list of transactions to be filtered.
-     * @return A filtered list of transactions with the specified category.
+     * @return A filtered list of transactions with the specified category, or all transactions if the category is empty.
      */
     @Override
     public List<Transaction> filter(List<Transaction> transactions) {
         List<Transaction> filteredTransactions = new ArrayList<>();
         for (Transaction transaction : transactions) {
-            if (transaction.getCategory().equalsIgnoreCase(category)) {
+            if (category.isBlank() || transaction.getCategory().equalsIgnoreCase(category)) {
                 filteredTransactions.add(transaction);
             }
         }
