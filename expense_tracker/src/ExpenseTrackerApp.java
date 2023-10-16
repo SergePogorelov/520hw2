@@ -34,6 +34,29 @@ public class ExpenseTrackerApp {
       }
     });
 
+    // Handle apply filter button clicks
+    view.getApplyFilterBtn().addActionListener(e -> {
+      // Get filter parameters from the view
+      double filterMaxAmount = view.getFilterMaxAmountField();
+      double filterMinAmount = view.getFilterMinAmountField();
+      String filterCategory = view.getFilterCategoryField();
+
+     // Call the controller to apply the filter
+      boolean filtered = controller.applyFilter(filterMinAmount, filterMaxAmount, filterCategory);
+
+      // Show an error message if the filter is invalid
+      if (!filtered) {  
+        JOptionPane.showMessageDialog(view, "Invalid amount or category entered for filtering");
+        view.toFront();
+      }
+  });
+
+    // Handle reset filter button clicks
+    view.getResetFilterBtn().addActionListener(e -> {
+      view.removeFilteredTransactions();
+      controller.refresh();
+  });
+
   }
 
 }
