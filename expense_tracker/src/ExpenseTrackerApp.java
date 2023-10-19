@@ -57,6 +57,17 @@ public class ExpenseTrackerApp {
       controller.refresh();
   });
 
+  //  // Handle undo button clicks
+  //  view.getUndoBtn().addActionListener(e -> {
+  //   // Call the controller to perform the undo action
+  //   boolean undone = controller.undoLastAction();
+
+  //   if (!undone) {
+  //     JOptionPane.showMessageDialog(view, "No actions to undo.");
+  //     view.toFront();
+  //   }
+  // });
+  
   }
 
 }

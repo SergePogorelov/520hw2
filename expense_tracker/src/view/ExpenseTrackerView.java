@@ -27,6 +27,7 @@ public class ExpenseTrackerView extends JFrame {
   private JTextField filterCategoryField;
   private JButton applyFilterBtn;
   private JButton resetFilterBtn;
+  // private JButton undoBtn;
   private List<Transaction> filteredTransactions;
 
   public ExpenseTrackerView() {
@@ -37,6 +38,7 @@ public class ExpenseTrackerView extends JFrame {
     this.model = new DefaultTableModel(columnNames, 0);
 
     addTransactionBtn = new JButton("Add Transaction");
+    // undoBtn = new JButton("Undo");
 
     // Create UI components
     JLabel amountLabel = new JLabel("Amount:");
@@ -84,6 +86,8 @@ public class ExpenseTrackerView extends JFrame {
     buttonPanel.add(addTransactionBtn);
     buttonPanel.add(applyFilterBtn);
     buttonPanel.add(resetFilterBtn);
+    // buttonPanel.add(undoBtn);
+
 
     // Create a container panel for the input and filter panels
     JPanel containerPanel = new JPanel();
@@ -157,6 +161,10 @@ public class ExpenseTrackerView extends JFrame {
   public void removeFilteredTransactions() {
     this.filteredTransactions = null;
   }
+//   public JButton getUndoBtn() {
+//     return undoBtn;
+// }
+
 
   public void refreshTable(List<Transaction> transactions) {
       // Clear existing rows
@@ -182,8 +190,6 @@ public class ExpenseTrackerView extends JFrame {
     }  
   
 
-  
-  
   public JButton getAddTransactionBtn() {
     return addTransactionBtn;
   }

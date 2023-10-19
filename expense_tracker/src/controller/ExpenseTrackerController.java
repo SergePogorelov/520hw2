@@ -23,6 +23,10 @@ public class ExpenseTrackerController {
 
     // Set up view event handlers
   }
+  // // Event handlers for view actions
+  // public void handleUndoAction() {
+  //   model.undoLastAction();
+  // }
 
   public void refresh() {
 
@@ -87,5 +91,9 @@ public class ExpenseTrackerController {
     refresh();
 
     return true;
+  }
+  
+  public boolean undoLastAction() {
+    return false;
   }
 }
