@@ -76,5 +76,27 @@ public class TestExample {
         double totalCost = getTotalCost();
         assertEquals(0.00, totalCost, 0.01);
     }
+
+    // @Test 
+    // public class UndoFeatureIntegrationTest {
+    //     @Test
+    //     public void testUndoAfterRemovingTransaction() {
+    //         ExpenseTrackerModel model = new ExpenseTrackerModel();
+    //         ExpenseTrackerController controller = new ExpenseTrackerController(model);
+    //         ExpenseTrackerView view = new ExpenseTrackerView();
+    
+    //         // Simulate user actions: add transactions, remove a transaction, trigger undo
+    //         model.addTransaction(transaction1);
+    //         model.addTransaction(transaction2);
+    
+    //         controller.handleRemoveTransaction(transaction1);
+    //         view.displayUndoableActionMessage();
+    //         controller.handleUndoAction();
+    
+    //         // Verify that the removed transaction is restored
+    //         assertEquals(expectedTransactions, model.getTransactions());
+    //     }
+    // }
+    
     
 }
