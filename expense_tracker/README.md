@@ -46,3 +46,14 @@ The Expense Tracker application now includes a robust filtering system to allow 
 - **Reset Filters**: To clear the highlighting of filtered entries, click the "Reset Filter" button. Clicking this button will remove the highlighting from any filtered rows, and the transaction table will display all transactions in white.
 
 - **Input Validation**: The input validation developed for amount and category fields is applied to the filters as well to ensure that users enter valid filter criteria.
+
+### 3. Undo Functionality
+
+In line with good UI design principles, the Expense Tracker application now includes an "Undo" functionality to allow users to reverse certain actions, particularly the removal of transactions. The undo functionality design adheres to the MVC architecture pattern and is designed but not yet implemented.
+
+**How the Undo Functionality Works**:
+
+- Users can select any transaction row they wish to undo by either selecting the row directly in the table or specifying a row index in a UI widget.
+- When the user triggers the "Undo" action, the application will restore the selected transaction to its previous state, reflecting the removal in the "Total Cost."
+
+The implementation of this undo functionality is planned for a future update of the Expense Tracker application. Detailed information on the actual implementation will be provided in subsequent releases.
